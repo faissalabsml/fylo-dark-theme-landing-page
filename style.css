@@ -25,7 +25,7 @@ html {
 
 @media only screen and (max-width: 47em) {
   html {
-    font-size: 53%;
+    font-size: 51%;
   }
 }
 
@@ -66,7 +66,8 @@ a:hover {
 }
 
 .btn {
-  background: #65e2d9;
+  background: -webkit-gradient(linear, left top, right top, from(#65e2d9), to(#339ecc));
+  background: linear-gradient(to right, #65e2d9, #339ecc);
   color: white;
   padding: 1.5rem 5rem;
   border-radius: 10rem;
@@ -77,8 +78,8 @@ a:hover {
 .container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: minmax(3rem, 1fr) (minmax(auto, 14em))[6] minmax(3rem, 1fr);
-      grid-template-columns: minmax(3rem, 1fr) repeat(6, minmax(auto, 14em)) minmax(3rem, 1fr);
+  -ms-grid-columns: minmax(2rem, 1fr) (minmax(auto, 14em))[6] minmax(2rem, 1fr);
+      grid-template-columns: minmax(2rem, 1fr) repeat(6, minmax(auto, 14em)) minmax(2rem, 1fr);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -105,7 +106,7 @@ a:hover {
 }
 
 .navbar__logo img {
-  width: 12rem;
+  width: 25vw;
   max-width: 15rem;
 }
 
@@ -119,7 +120,7 @@ a:hover {
 
 @media only screen and (max-width: 47em) {
   .navbar__item:not(:last-child) {
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 }
 
@@ -128,11 +129,15 @@ a:hover {
   background: #1c2431 url("/images/bg-curvy-desktop.svg") no-repeat;
   background-size: 100% auto;
   background-position: 50% 100%;
-  margin-bottom: 10rem;
+  padding: 2rem 0 10rem 0;
+}
+
+.header__illustration {
+  margin-top: 5rem;
 }
 
 .header__illustration img {
-  width: clamp(30rem, 45vw, 60rem);
+  width: clamp(30rem, 55vw, 60rem);
 }
 
 .header__text {
@@ -163,7 +168,7 @@ a:hover {
 }
 
 .features {
-  padding: 5rem 0;
+  padding: 7rem 0;
 }
 
 .features .feature-box {
@@ -225,7 +230,7 @@ a:hover {
 }
 
 .feature-2 {
-  padding: 5rem 0;
+  padding: 7rem 0;
 }
 
 .feature-2__illustration {
@@ -292,7 +297,7 @@ a:hover {
 }
 
 .testimonials {
-  padding: 10rem 0;
+  padding: 12rem 0;
 }
 
 .testimonials .testimonial {
@@ -426,6 +431,9 @@ a:hover {
 }
 
 @media only screen and (max-width: 47em) {
+  .early-access {
+    padding: 6rem 1rem;
+  }
   .early-access__form input {
     display: block;
     margin: 0 auto 2rem auto;
@@ -533,18 +541,11 @@ a:hover {
   -ms-grid-column-align: center;
       justify-self: center;
   margin-top: 5rem;
+  text-align: center;
 }
 
 @media only screen and (max-width: 56.25em) {
-  .footer__logo {
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 4;
-    grid-column: 3 / 7;
-  }
   .footer__navigation {
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 4;
-    grid-column: 3 / 7;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;

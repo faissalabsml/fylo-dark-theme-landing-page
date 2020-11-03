@@ -40,7 +40,7 @@ html {
   } 
 
   @media only screen and (max-width: 47em) {
-    font-size: 53%;
+    font-size: 51%;
   } 
 }
 
@@ -80,7 +80,7 @@ a:hover {
 }
 
 .btn {
-  background: $accent-cyan;
+  background: linear-gradient(to right, $accent-cyan, $accent-blue);
   color: $white;
   padding: 1.5rem 5rem;
   border-radius: 10rem;
@@ -91,7 +91,7 @@ a:hover {
 // GRID COLUMNS
 .container {
   display: grid;
-  grid-template-columns: minmax(3rem, 1fr) repeat(6, minmax(auto, 14em)) minmax(3rem, 1fr);
+  grid-template-columns: minmax(2rem, 1fr) repeat(6, minmax(auto, 14em)) minmax(2rem, 1fr);
   align-items: center;
   gap: 2rem;
 
@@ -112,7 +112,7 @@ a:hover {
   &__logo {
     
     img {
-      width: 12rem;
+      width: 25vw;
       max-width: 15rem;
     }
   }
@@ -131,7 +131,7 @@ a:hover {
     &__item {
   
       &:not(:last-child) {
-        margin-right: 2rem;
+        margin-right: 1rem;
       }
     }
   } 
@@ -143,12 +143,13 @@ a:hover {
   background: $background-intro url("/images/bg-curvy-desktop.svg") no-repeat;
   background-size: 100% auto;
   background-position: 50% 100%;
-  margin-bottom: 10rem;
+  padding: 2rem 0 10rem 0;
   
   &__illustration {
+    margin-top: 5rem;
     
     img {
-      width: clamp(30rem, 45vw, 60rem);
+      width: clamp(30rem, 55vw, 60rem);
     }
   }
   
@@ -193,7 +194,7 @@ a:hover {
 // FEATURES SECTION 
 
 .features {
-  padding: 5rem 0;
+  padding: 7rem 0;
 
   .feature-box {
     padding: 5rem 3rem;
@@ -239,7 +240,7 @@ a:hover {
 }
 
 .feature-2 {
-  padding: 5rem 0;
+  padding: 7rem 0;
 
   &__illustration {
     grid-column: 2 / 5;
@@ -296,7 +297,7 @@ a:hover {
 }
 
 .testimonials { 
-  padding: 10rem 0;
+  padding: 12rem 0;
 
   .testimonial {
     background: $background-testimonials;
@@ -415,6 +416,7 @@ a:hover {
   // } 
 
   @media only screen and (max-width: 47em) {
+    padding: 6rem 1rem;
     
     &__form {
       
@@ -472,6 +474,10 @@ a:hover {
       display: flex;
       align-items: flex-start;
 
+      svg {
+        // width: 9rem;
+      }
+
       p {
         max-width: 33rem;
       }
@@ -508,16 +514,16 @@ a:hover {
     grid-column: 2 / 8;
     justify-self: center;
     margin-top: 5rem;
+    text-align: center;
   }
 
   @media only screen and (max-width: 56.25em) {
 
-    &__logo {
-      grid-column: 3 / 7;
-    }
+    // &__logo {
+    //   grid-column: 3 / 7;
+    // }
     
     &__navigation {
-      grid-column: 3 / 7;
       flex-direction: column;
       gap: 4rem;
       margin-top: 3rem;
