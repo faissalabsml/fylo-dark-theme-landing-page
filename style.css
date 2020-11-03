@@ -66,8 +66,8 @@ a:hover {
 }
 
 .btn {
-  background: -webkit-gradient(linear, left top, right top, from(#65e2d9), to(#339ecc));
-  background: linear-gradient(to right, #65e2d9, #339ecc);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(101, 226, 217, 0.8)), to(#339ecc));
+  background: linear-gradient(to right, rgba(101, 226, 217, 0.8), #339ecc);
   color: white;
   padding: 1.5rem 5rem;
   border-radius: 10rem;

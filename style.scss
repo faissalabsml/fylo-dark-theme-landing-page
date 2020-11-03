@@ -80,7 +80,7 @@ a:hover {
 }
 
 .btn {
-  background: linear-gradient(to right, $accent-cyan, $accent-blue);
+  background: linear-gradient(to right, rgba($accent-cyan, .8), $accent-blue);
   color: $white;
   padding: 1.5rem 5rem;
   border-radius: 10rem;
