@@ -30,6 +30,7 @@ $body: 'Open Sans', sans-serif;
 html {
   // To set 1rem equal to 10px (10px/16px = 62.5%)
   font-size: 62.5%;
+  scroll-behavior: smooth;
 
   @media only screen and (max-width: 75em) {
     font-size: 60%;
@@ -49,8 +50,8 @@ body {
   font-family: $body;
   background: $background-main;
   color: $white;
-  font-size: 1.4rem;
-  line-height: 1.4;
+  font-size: 1.5rem;
+  line-height: 1.5;
 }
 
 a,
@@ -60,12 +61,14 @@ a:visited {
   text-decoration: none;
 }
 
-a:hover {
-  color: $accent-blue;
+a:hover { color: $accent-blue; }
+
+:is(h1, h2, h3, h4, button) {
+  font-family: $heading;
+  line-height: 1.2;
 }
 
 .heading-1 {
-  font-family: $heading;
   font-size: clamp(3rem, 2.5vw, 3.5rem);
 }
 
@@ -75,17 +78,25 @@ a:hover {
 }
 
 .heading-3 {
-  font-size: 3rem;
+  font-size: 4.5rem;
   margin-bottom: 2rem;
 }
 
 .btn {
+  font-family: $heading;
+  display: block;
   background: linear-gradient(to right, rgba($accent-cyan, .8), $accent-blue);
   color: $white;
-  padding: 1.5rem 5rem;
+  padding: 1.5rem 0;
   border-radius: 10rem;
   font-weight: 700;
   font-size: 1.7rem;
+  transition: transform .2s ease-in;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 20px rgba($background-footer, 1);
+  }
 }
 
 // GRID COLUMNS
@@ -104,6 +115,7 @@ a:hover {
 
 // TOP NAVBAR 
 .navbar {
+  font-family: $heading;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -158,31 +170,22 @@ a:hover {
     max-width: 70rem;
     margin: 0 auto;
     
-    .heading-1 {
-      margin-top: 5rem;
-    }
+    .heading-1 { margin-top: 5rem; }
     
-    .heading-2 {
+    p {
       width: 80%;
+      font-size: 1.9rem;
       margin: 3rem auto 5rem auto;
     }
 
     .btn {
-      padding: 1.5rem 10rem;
+      width: 45vw;
+      max-width: 27rem;
+      margin: 0 auto;
     }
+
+    .btn:hover { color: $white; }
   }
-
-  // &__bg {
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 0;
-  //   transform: scale(1.5);
-  //   z-index: -1;
-
-  //   &-mobile {
-  //     display: none;
-  //   }
-  // }
   
   @media only screen and (max-width: 47em) {
     background: $background-intro url("/images/bg-curvy-mobile.svg") no-repeat;
@@ -204,23 +207,14 @@ a:hover {
 
     &__icon {
 
-      img {
-        width: 6rem;
-      }
+      img { width: 6rem; }
     } 
 
-    &__heading {
+    &__heading { margin: 1.5rem 0; }
 
-      margin: 1.5rem 0;
-    }
+    &:nth-child(1) { grid-column: 3 / 5; }
 
-    &:nth-child(1) {
-      grid-column: 3 / 5;
-    }
-
-    &:nth-child(2) {
-      grid-column: 5 / 7;
-    }
+    &:nth-child(2) { grid-column: 5 / 7; }
 
     &:nth-child(3) {
       grid-row: 2 / 3;
@@ -246,8 +240,8 @@ a:hover {
     grid-column: 2 / 5;
     justify-self: center;
 
-    img {
-      max-width: 40vw;
+    img { 
+      width: clamp(40rem, 50vw, 60rem);
     }
   }
 
@@ -255,12 +249,16 @@ a:hover {
     grid-column: 5 / 8;
     margin-left: 2rem;
 
-    div {
-      width: 80%;
+    h4 {
+      width: 40vw;
+      max-width: 50rem;
     }
 
+    div { width: 85%; }
+
     p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.7rem;
+      font-size: 1.7rem;
     }
 
     a {
@@ -277,21 +275,27 @@ a:hover {
     }
   }
 
-  @media only screen and (max-width: 47em) {
-    margin-top: 7rem;
+  @media only screen and (max-width: 56.25em) {
 
     &__illustration {
-      grid-column: 2 / 8;
+      grid-column: 3 / 7;
       place-self: center;
     }
 
     &__content {
-      grid-column: 2 / 8;
-      margin: 0 auto;
+      grid-column: 3 / 7;
+      margin: 5rem auto;
 
-      div {
-        width: 100%;
-      }
+      div { width: 100%; }
+    }
+  }
+
+
+  @media only screen and (max-width: 47em) {
+
+    &__illustration,
+    &__content {
+      grid-column: 2 / 8;
     }
   } 
 }
@@ -304,10 +308,6 @@ a:hover {
     border-radius: 5px;
     padding: 3rem 3.5rem;
     box-shadow: 10px 5px 10px rgba($background-testimonials, .2),0 5px 10px rgba($background-testimonials, .2); 
-
-    &__text {
-      font-size: 1.5rem;
-    }
 
     &__footer {
       margin-top: 2.5rem;
@@ -327,13 +327,9 @@ a:hover {
 
     &__author {
 
-      p:first-child {
-        font-weight: 700;
-      }
+      p:first-child { font-weight: 700; }
 
-      p:last-child {
-        color: rgba($white, .5);
-      }
+      p:last-child { color: rgba($white, .5); }
     }
 
     .quote-icon {
@@ -348,30 +344,20 @@ a:hover {
       position: relative;
     }
 
-    &:nth-child(2) {
-      grid-column: 4 / 6;
-    }
+    &:nth-child(2) { grid-column: 4 / 6; }
 
-    &:nth-child(3) {
-      grid-column: 6 / 8;
-    }
+    &:nth-child(3) { grid-column: 6 / 8; }
   }
 
   @media only screen and (max-width: 47em) {
 
     .testimonial {
 
-      &:nth-child(1) {
-        grid-column: 2 / 8;
-      }
+      &:nth-child(1) { grid-column: 2 / 8; }
   
-      &:nth-child(2) {
-        grid-column: 2 / 8;
-      }
+      &:nth-child(2) {grid-column: 2 / 8; }
   
-      &:nth-child(3) {
-        grid-column: 2 / 8;
-      }
+      &:nth-child(3) { grid-column: 2 / 8; }
     }
   }
 }
@@ -385,12 +371,14 @@ a:hover {
   text-align: center;
   transform: translateY(40%);
   border-radius: 10px;
-  box-shadow: 10px 10px 20px rgba($background-footer, 1);
+  box-shadow: 10px 10px 20px rgba(#000, .2);
+
+  &__heading { font-size: 3.5rem; }
 
   &__text {
-    width: 70%;
-    margin: 0 auto;
-    font-size: 1.5rem;
+    width: 80%;
+    margin: 3rem auto;
+    font-size: 1.7rem;
   }
 
   &__form {
@@ -408,12 +396,9 @@ a:hover {
     button {
       display: inline-block;
       border: none;
+      width: 27%;
     }
   }
-
-  // @media only screen and (max-width: 75rem) {
-  //   width: 60vw;
-  // } 
 
   @media only screen and (max-width: 47em) {
     padding: 6rem 1rem;
@@ -426,21 +411,20 @@ a:hover {
         width: 80%;
       }
 
-      button {
-        width: 80%;
-      }
+      button { width: 80%; }
     }
   } 
 }
 
 .footer {
   background: $background-footer;
-  padding: 22rem 0 5rem 0;
-  font-size: 1.5rem;
+  padding: 25rem 0 5rem 0;
 
   &__logo {
     grid-column: 2 / 8;
-    margin-bottom: 2rem;
+    margin: 4rem 0;
+
+    img { width: clamp(10rem, 50vw, 20rem); }
   }
 
   &__navigation {
@@ -457,30 +441,25 @@ a:hover {
 
       &:hover {
 
-        svg {
+        svg, path {
           fill: $accent-blue;
         }
       }
     }
 
-    svg {
-      margin-right: 2rem;
-    }
+    svg { margin-right: 2rem; }
   }
   
   &__col {
 
     &:nth-child(1) {
-      display: flex;
-      align-items: flex-start;
 
       svg {
-        // width: 9rem;
+        align-self: start;
+        width: 6rem;
       }
 
-      p {
-        max-width: 33rem;
-      }
+      a { max-width: 33rem; }
     }
 
     &:nth-child(5) {
@@ -493,13 +472,9 @@ a:hover {
         margin: 0;
         justify-content: center;
 
-        &:not(:last-child) {
-          margin-right: 1rem;
-        }
+        &:not(:last-child) { margin-right: 1rem; }
 
-        &:hover {
-          border-color: $accent-blue;
-        }
+        &:hover { border-color: $accent-blue; }
       }
 
       svg {
@@ -519,9 +494,11 @@ a:hover {
 
   @media only screen and (max-width: 56.25em) {
 
-    // &__logo {
-    //   grid-column: 3 / 7;
-    // }
+    &__logo,
+    &__navigation,
+    &__attribution { 
+      grid-column: 3 / 7; 
+    }
     
     &__navigation {
       flex-direction: column;
@@ -531,11 +508,18 @@ a:hover {
 
     &__col {
 
-      &:nth-child(5) {
-        align-self: center;
-      }
+      &:nth-child(5) { align-self: center; }
     }
   } 
+
+  @media only screen and (max-width: 47em) {
+
+    &__logo,
+    &__navigation,
+    &__attribution {
+      grid-column: 2 / 8;
+    }
+  }
 }
 
 
